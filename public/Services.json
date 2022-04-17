@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1, 
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy6oilMyIlsWFFkCM1bvuSBsnOSuB2vSc2WQ&usqp=CAU", 
+        "name": "Sooting setup", 
+        "Project price": "20000",
+        "discription": "shooting, the sport of firing at targets of various kinds with rifles, handguns (pistols and revolvers), and shotguns as an exercise in marksmanship"
+    },     
+    {
+        "id": 2, 
+        "img": "https://images.thequint.com/thequint%2F2021-11%2Fabf5a1cf-494f-41dd-acd8-cddabb36741b%2Fhero_image_A.jpg?rect=0%2C0%2C2000%2C1125", 
+        "name": "event collect", 
+        "Project price": "10000",
+        "discription": "A reporter is a type of journalist who researches, writes and reports on information in order to present using sources. This may entail conducting interviews, information-gathering and/or writing articles. Reporters may split their time between working in a newsroom, or from home, and going out to witness events or interviewing people. Reporters may be assigned a specific beat or area of coverage"
+    },     
+    {
+        "id": 3, 
+        "img": "https://reutersinstitute.politics.ox.ac.uk/sites/default/files/2021-01/rtx8kg9b_layout_-_comp.jpg", 
+        "name": "vaccine project", 
+        "Project price": "15000",
+        "discription": "Vaccines contain weakened or inactive parts of a particular organism (antigen) that triggers an immune response within the body. Newer vaccines contain the blueprint for producing antigens rather than the antigen itself"
+    }     
+]
