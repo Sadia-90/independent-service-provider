@@ -1,29 +1,49 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './Login.css'
 
 const Login = () => {
-    return (
-        <div className='form-container'>
-            <h1>login</h1>
-      <div>
-     <form action="">
-     <div className="input-group">
-        <label htmlFor="email">Email: </label>
-        <input type="email" name='email' id='' required/>  
-      </div> 
-      <div className="input-group">
-        <label htmlFor="password">Password: </label>
+  const emailRef = useRef('');
+  const passwordRef = useRef('');
+  const navigate = useNavigate('');
 
-        <input type="password" name='password' id=''/>  
+
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    console.log(email, password);
+}
+
+  const navigateRegister = e =>{
+    navigate('/register')
+  }
+
+    return (
+      <div className='form-container'>
+            <h1>login</h1>
+        <div>
+
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-3" controlId="formGroupEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control ref={emailRef} type="email" placeholder="Enter email" required/>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formGroupPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control ref={passwordRef} type="password" placeholder="Password" required/>
+
+              </Form.Group>
+              <input className='form-submit' type="submit" value="Login" required/>
+            </Form>
+                <p>
+                    independent provider service? <span className='form-link' onClick={navigateRegister}>create an account</span>
+                </p>
+        </div>  
       </div>
-      <input className='form-submit' type="submit" value="Login" required/>
-     </form>
-     <p>
-         independent provider service? <Link className='form-link' to="/signup">create an account</Link>
-     </p>
-    </div>  
-    </div>
     );
 };
 

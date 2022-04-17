@@ -4,7 +4,7 @@
 
 ## description:
 <li>This site made with firebase, react bootstrap, vanila css.</li> 
-<li>here i use</li>
-<li></li>
-<li></li>
-<li></li>
+<li>here i use verity of components.</li>
+<li>It's contain navbar, banner, work details, login form </li>
+<li>here i try to explain about my self</li>
+<li>it;s a independent service provide type web page</li>

@@ -1,8 +1,9 @@
-.form-container{
+ .form-container{
     position: relative;
      margin: 4rem, auto; 
     margin-bottom: 10px;
-    width: 350px;
+    width: 50%;
+    margin: 0 auto;
     height: 614px;
     /* left: 470px;
     top: 236px; */
@@ -28,4 +29,9 @@
     
     background-color: rgb(143, 89, 17);
     border-radius: 5px; 
+} 
+.form-link{
+    font-weight: 700;
+    text-decoration-line: underline;
+    cursor: grab;
 }
