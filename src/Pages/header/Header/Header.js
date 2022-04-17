@@ -1,18 +1,27 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import './Header.css'
 
 const Header = () => {
     return (
         <>
   <Navbar bg="warning" variant="dark">
-    <Container>
-    <Navbar.Brand href="#home">independent service</Navbar.Brand>
-    <Nav className="me-auto">
-      <Nav.Link href="#home">Home</Nav.Link>
-      <Nav.Link href="#features">Features</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-    </Nav>
-    </Container>
+    
+        <div>
+        <h1>independent service</h1>
+        </div>
+
+       
+        <Nav className="me-auto">
+        <NavLink className={({isActive}) => isActive ? "active-link" : "link"} to='/'>Home</NavLink>       
+        <NavLink className={({isActive}) => isActive ? "active-link" : "link"} to='/blog'>Blogs</NavLink>
+        <NavLink className={({isActive}) => isActive ? "active-link" : "link"} to='/about'>About</NavLink>
+        <NavLink className={({isActive}) => isActive ? "active-link" : "link"} to='/Login'>Login</NavLink>
+       
+        </Nav>
+       
+    
   </Navbar>
   
 

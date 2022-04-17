@@ -1,0 +1,12 @@
+.me-auto{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    
+    align-items: center;
+     padding-left: 10px;
+    
+  
+   
+  }
