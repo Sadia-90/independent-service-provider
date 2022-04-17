@@ -1,51 +1,69 @@
-import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Button } from 'bootstrap';
+// import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
+ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import auth from '../../firebase.init';
+ import auth from '../../firebase.init';
 
 const Register = () => {
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        // loading,
+        // error,
+      ] = useCreateUserWithEmailAndPassword(auth);
 
-    const [email, setemail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    // const [email, setemail] = useState('');
+    // const [password, setPassword] = useState('');
+    
 
-    const handelEmailBlur = event => {
-        setemail(event.target.value);
-    }
+    // const handelEmailBlur = event => {
+    //     setemail(event.target.value);
+    // }
 
-    const handelPasswordBlur = event => {
-        setPassword(event.target.value);
-    }
+    // const handelPasswordBlur = event => {
+    //     setPassword(event.target.value);
+    // }
 
-    const handelErrorBlur = event => {
-        setError(event.target.value);
+    // const handelErrorBlur = event => {
+    //     setError(event.target.value);
 
 
 
-        createUserWithEmailAndPassword(email, password, error)
-    }
-    const handleCreateUser = event => {
-        event.preventDefault();
-    }
+       
+    // }
+    // const handleCreateUser = event => {
+    //     event.preventDefault();
 
-    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+    //     createUserWithEmailAndPassword(email, password)
+    // }
+
+    // const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
 
     return (
         <div className='form-container'>
         <h1 className='text-orange-600'>Sign Up</h1>
         <div>
-            <form onsubmit={handleCreateUser}>
-                <div className="input-group">
-                    <label htmlFor="email">Email</label>
-                    <input onBlur={handelEmailBlur} type="email" name='email' id='' />
-                </div>
-                <div className="input-group">
-                    <label htmlFor="password">Password</label>
+        <Form>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Label>Email address</Form.Label>
+    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Text className="text-muted">
+      We'll never share your email with anyone else.
+    </Form.Text>
+  </Form.Group>
 
-                    <input onBlur={handelPasswordBlur} type="password" name='password' id='' required />
-                </div>
-                <input onBlur={handelErrorBlur} className='form-submit' type="submit" value="SignUp" required />
-            </form>
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Label>Password</Form.Label>
+    <Form.Control type="password" placeholder="Password" />
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+    <Form.Check type="checkbox" label="Check me out" />
+  </Form.Group>
+  <Button variant="primary" type="submit">
+    Submit
+  </Button>
+</Form>
             <p>
                 an account? <Link className='form-link' to="/login">Login</Link>
             </p>
