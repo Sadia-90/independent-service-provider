@@ -13,14 +13,15 @@ const SocialLogin = () => {
     if (error || error1) {
        
         errorElement = <div>
-            <p className='text-denger'>Error?: {error.message} {error1?.message}</p>
+            <p className='text-denger'>Error: {error?.message} {error1?.message}</p>
         </div>
         
     }
 
     if(user || user1){
         navigate ('/')
-      }
+    }
+
     return (
         <div>
             <div className='d-flex align-items-center'>
@@ -28,6 +29,7 @@ const SocialLogin = () => {
                 <p className='mt-2 px-2'>or</p>
                 <div style={{height: '1px'}} className='bg-warning w-50 '></div>
             </div>
+            
             {errorElement}
            
             <div>
