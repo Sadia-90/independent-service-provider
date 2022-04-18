@@ -1,75 +1,33 @@
-import { Button } from 'bootstrap';
-// import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
- import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
- import auth from '../../firebase.init';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import './Register.css'
 
 const Register = () => {
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        // loading,
-        // error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
 
-    // const [email, setemail] = useState('');
-    // const [password, setPassword] = useState('');
-    
+  const navigateLogin = () =>{
+    navigate('/login')
+  }
 
-    // const handelEmailBlur = event => {
-    //     setemail(event.target.value);
-    // }
+  const handelRegister = e =>{
+    e.preventDefault();
+  } 
 
-    // const handelPasswordBlur = event => {
-    //     setPassword(event.target.value);
-    // }
+  return (
+    <div className='register-form'>
+      <h1>register</h1>
+      <form onSubmit={handelRegister}>
+        <input type="email" name="email" id="" placeholder='Your email' required/>
+        
+        <input type="password" name="password" id="" placeholder='Your password' required/>
 
-    // const handelErrorBlur = event => {
-    //     setError(event.target.value);
-
-
-
-       
-    // }
-    // const handleCreateUser = event => {
-    //     event.preventDefault();
-
-    //     createUserWithEmailAndPassword(email, password)
-    // }
-
-    // const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
-
-    return (
-        <div className='form-container'>
-        <h1 className='text-orange-600'>Sign Up</h1>
-        <div>
-        <Form>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
-
-  <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
-            <p>
-                an account? <Link className='form-link' to="/login">Login</Link>
-            </p>
-        </div>
+        <input type="submit" value="Register" />
+      </form>
+      <p>
+                   Already have an account? <Link to="/login" onClick={navigateLogin}>Please Login</Link>
+                </p>
     </div>
-    );
+  );
 };
 
 export default Register;

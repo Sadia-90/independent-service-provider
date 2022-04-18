@@ -1,11 +1,12 @@
 import React from 'react';
-import './About.css'
+import './About.css';
+import Images from '../../Images/IMG_20210313_173559.jpg'
 
 const About = () => {
     return (
         <div className='goal-container'>
             <div>
-                 <img src="https://photos.google.com/photo/AF1QipOuxz8E1DdPMyxyH2ecNfn1GQ6V2D9wDDXIkFDi" alt="" />
+                 <img width={300} height={300} src={Images} alt="" />
             </div>
             <h1>It has already been six month past I started of 2021!</h1>
             <h3>My goal below there </h3>
