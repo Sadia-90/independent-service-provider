@@ -29,7 +29,7 @@ const SocialLogin = () => {
                 <p className='mt-2 px-2'>or</p>
                 <div style={{height: '1px'}} className='bg-warning w-50 '></div>
             </div>
-            
+
             {errorElement}
            
             <div>
