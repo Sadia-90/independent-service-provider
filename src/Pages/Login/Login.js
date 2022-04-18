@@ -1,4 +1,85 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import { useLocation } from "react-router-dom";
+
+const Login = () => {
+  const location = useLocation()
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [
+    signInWithEmailAndPassword, user
+  ] = useSignInWithEmailAndPassword(auth);
+  let from = location.state?.from?.pathname || "/";
+  if(user){
+    navigate(from)
+  }
+  const handelRegister  = e => {
+    e.preventDefault()
+    console.log(email, password);
+    signInWithEmailAndPassword(email, password)
+  }
+  return (
+    <div className='register-form'>
+      <h1>register</h1>
+      <form onSubmit={handelRegister}>
+        <input onBlur={(e) => setEmail(e.target.value)} type="email" name="email" id="" placeholder='Your email' required />
+
+        <input onBlur={(e) => setPassword(e.target.value)} type="password" name="password" id="" placeholder='Your password' required />
+
+        <input type="submit" value="Register" />
+      </form>
+      <p>
+        Don't have an account? <Link to="/register">Please Register</Link>
+      </p>
+    </div>
+  );
+};
+
+export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import React, { useRef } from 'react';
 import { Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
@@ -14,8 +95,8 @@ const Login = () => {
   const [
     signInWithEmailAndPassword,
     user,
-    // loading,
-    // error,
+    //  loading,
+    //  error,
   ] = useSignInWithEmailAndPassword(auth);
 
   if (user){
@@ -23,10 +104,13 @@ const Login = () => {
   }
 
   const handleSubmit = event => {
-    event.preventDefault();
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    signInWithEmailAndPassword(email, password)
+     event.preventDefault();
+     const email = event.target.email.value;
+    const password = event.target.password.value;
+     signInWithEmailAndPassword(email, password)
+     console.log('clicked')
+
+    
 }
 
   const navigateRegister = e =>{
@@ -37,6 +121,8 @@ const Login = () => {
       <div className='form-container'>
             <h1>login</h1>
         <div>
+
+         
 
             <Form onSubmit={handleSubmit}>
               <Form.Group className="mb-3" controlId="formGroupEmail">
@@ -58,4 +144,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Login; */
